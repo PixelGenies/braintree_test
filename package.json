@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "lint": "eslint .",
-    "start": "node ./bin/www",
+    "start": "node ./server.js",
     "test": "npm run lint && mocha"
   },
   "devDependencies": {
