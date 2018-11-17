@@ -39,7 +39,9 @@ app.post("/checkout", function (req, res) {
       options: {
         submitForSettlement: true
       }
-    }, function (err, result) {}
+    }, function (err, result) {
+        res.status(200);
+    }
     );
   }
 );
