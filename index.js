@@ -17,7 +17,7 @@ var gateway = braintree.connect({
 });
 
 gateway.clientToken.generate({
-    customerId: "aCustomerId"
+    customerId: "554362549"
   }, function (err, response) {
     var clientToken = response.clientToken
   }
