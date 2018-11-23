@@ -7,7 +7,7 @@ app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
 
 app.use(parser.urlencoded({extended : true}));
-app.use(express.json());       // to support JSON-encoded bodies
+app.use(parser.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded()); // to support URL-encoded bodies
 
 app.get('/', function(request, response) {
