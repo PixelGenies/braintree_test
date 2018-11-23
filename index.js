@@ -36,7 +36,7 @@ app.get("/client_token", function (req, res) {
 );
 
 app.post("/checkout", function (req, res) {
-  var nonceFromTheClient = req.body
+  var nonceFromTheClient = req.body.payment_method_nonce
   // Use payment method nonce here
   console.log('nonce : ' + nonceFromTheClient)
   console.log('body : ' + req.body)
