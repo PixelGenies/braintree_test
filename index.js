@@ -56,6 +56,12 @@ app.post("/checkout", function (req, res) {
   });
 });
 
+app.post('/sms', function (req, res) {
+  const body = req.body.Body
+  res.set('Content-Type', 'text/plain')
+  res.send(`You sent: ${body} to Express`)
+})
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 })
