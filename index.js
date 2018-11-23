@@ -31,7 +31,8 @@ app.get("/client_token", function (req, res) {
 );
 
 app.post("/checkout", function (req, res) {
-    var nonceFromTheClient = req.params.payment_method_nonce;
+    //var nonceFromTheClient = req.params.payment_method_nonce;
+  var nonceFromTheClient = '581280e0-647b-01ed-7df0-ecbfa177e452';
     // Use payment method nonce here
     console.log('nonce : ' + nonceFromTheClient)
     gateway.transaction.sale({
