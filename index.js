@@ -40,7 +40,13 @@ app.post("/checkout", function (req, res) {
         submitForSettlement: true
       }
     }, function (err, result) {
+        if (result.success) { 
+        // See result.transaction for details 
         res.send('OK');
+      } else { 
+        // Handle errors 
+        res.send('NOT OK');
+        }
     }
     );
   }
