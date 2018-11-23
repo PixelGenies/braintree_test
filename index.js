@@ -39,14 +39,17 @@ app.post("/checkout", function (req, res) {
       options: {
         submitForSettlement: true
       }
+      console.log(nonceFromTheClient)
     }, function (err, result) {
+      console.log(result)
         if (result.success) { 
         // See result.transaction for details 
         res.send('OK');
       } else { 
         // Handle errors 
-        res.send('NOT OK');
-        }
+      console.log(err)
+      res.send('NOT OK');
+     }
     }
     );
   }
