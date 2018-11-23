@@ -36,6 +36,8 @@ app.post("/checkout", function (req, res) {
   var nonceFromTheClient = req.body
   // Use payment method nonce here
   console.log('nonce : ' + nonceFromTheClient)
+  console.log('body 1: ' + request.body)
+  console.log('body 2: ' + req.body)
   gateway.transaction.sale({
     amount: "10.00",
     paymentMethodNonce: nonceFromTheClient,
