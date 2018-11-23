@@ -31,30 +31,27 @@ app.get("/client_token", function (req, res) {
 );
 
 app.post("/checkout", function (req, res) {
-    //var nonceFromTheClient = req.params.payment_method_nonce;
-  var nonceFromTheClient = '581280e0-647b-01ed-7df0-ecbfa177e452';
-    // Use payment method nonce here
-    console.log('nonce : ' + nonceFromTheClient)
-    gateway.transaction.sale({
-      amount: "10.00",
-      paymentMethodNonce: nonceFromTheClient,
-      options: {
-        submitForSettlement: true
-      }
-    }, function (err, result) {
-        if (result.success) { 
-        // See result.transaction for details 
-        res.send('OK');
-      } else { 
-        // Handle errors 
-        console.log('result : ' + result)
-        console.log('error : ' + err)
-        res.send('NOT OK');
-      }
+  var nonceFromTheClient = req.body
+  // Use payment method nonce here
+  console.log('nonce : ' + nonceFromTheClient)
+  gateway.transaction.sale({
+    amount: "10.00",
+    paymentMethodNonce: nonceFromTheClient,
+    options: {
+      submitForSettlement: true
     }
-    );
-  }
-);
+  }, function (err, result) {
+    if (result.success) { 
+    // See result.transaction for details 
+      res.send('OK');
+    } else { 
+      // Handle errors 
+      console.log('result : ' + result)
+      console.log('error : ' + err)
+      res.send('NOT OK');
+    }
+  });
+});
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
