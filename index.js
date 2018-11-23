@@ -1,5 +1,6 @@
 var braintree = require("braintree");
 var express = require('express');
+var parser = require("body-parser");
 var app = express();
 
 app.set('port', (process.env.PORT || 5000))
@@ -30,6 +31,7 @@ app.get("/client_token", function (req, res) {
   }
 );
 
+app.use(parser.urlencoded({extended : true}));
 app.post("/checkout", function (req, res) {
   var nonceFromTheClient = req.body
   // Use payment method nonce here
