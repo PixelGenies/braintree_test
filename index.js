@@ -38,8 +38,8 @@ app.get("/client_token", function (req, res) {
 app.post("/checkout", function (req, res) {
   var nonceFromTheClient = req.body.payment_method_nonce
   // Use payment method nonce here
-  console.log('nonce : ' + nonceFromTheClient)
-  console.log('body : ' + req.body)
+  //console.log('nonce : ' + nonceFromTheClient)
+  //console.log('body : ' + req.body)
   gateway.transaction.sale({
     amount: "10.00",
     paymentMethodNonce: nonceFromTheClient,
@@ -58,12 +58,6 @@ app.post("/checkout", function (req, res) {
     }
   });
 });
-
-app.post('/sms', function (req, res) {
-  const body = req.body.Body
-  res.set('Content-Type', 'text/plain')
-  res.send(`You sent: ${body} to Express`)
-})
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
