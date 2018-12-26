@@ -17,8 +17,8 @@ app.get('/', function(request, response) {
 var gateway = braintree.connect({
   environment: braintree.Environment.Sandbox,
   merchantId: "pp27vfzcd48kbn9f",
-  publicKey: "b48s99xwz65hdysd",
-  privateKey: "9f14f80af0a78ce7b27ce91cab146ee7"
+  publicKey: "3vbtp4jkt2bky2pw",
+  privateKey: "71eeda681b5a2ab0e2e921c60c2cf604"
 });
 
 gateway.clientToken.generate({
